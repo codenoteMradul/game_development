@@ -1,0 +1,46 @@
+<h1>Enter Details For Sign Up</h1>
+
+<%= form_with(model: @users, url: users_path) do |form| %>
+
+<div>
+	<%= form.label :username %>
+	<br>
+	<%= form.text_area :username %>
+</div>
+
+<div>
+	<%= form.label :age %>
+	<br>
+	<%= form.text_area :age %>
+</div>
+
+<div>
+	<%= form.label :city %>
+	<br>
+	<%= form.text_area :city %>
+</div>
+
+<div>
+	<%= form.label :phone %>
+	<br>
+	<%= form.text_area :phone %>
+</div>
+
+<div>
+	<%= form.label :email %>
+	<br>
+	<%= form.text_area :email %>
+</div>
+
+<div>
+	<%= form.label :password %>
+	<br>
+	<%= form.text_area :password %>
+</div>
+<br>
+<div>
+	<%= form.submit %>
+</div>
+
+<% end %>
+<% flash.alert = "account created" %>
