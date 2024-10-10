@@ -2,45 +2,44 @@
 
 <%= form_with(model: @users, url: users_path) do |form| %>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :username %>
 	<br>
 	<%= form.text_area :username %>
 </div>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :age %>
 	<br>
 	<%= form.text_area :age %>
 </div>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :city %>
 	<br>
 	<%= form.text_area :city %>
 </div>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :phone %>
 	<br>
 	<%= form.text_area :phone %>
 </div>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :email %>
 	<br>
 	<%= form.text_area :email %>
 </div>
 
-<div>
+<div class = "signup_form">
 	<%= form.label :password %>
 	<br>
 	<%= form.text_area :password %>
 </div>
 <br>
 <div>
-	<%= form.submit %>
+	<%= form.submit "create account"%>
 </div>
 
 <% end %>
-<% flash.alert = "account created" %>

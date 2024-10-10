@@ -1,0 +1,24 @@
+<h1>Sign In</h1>
+
+ <%= form_with(url: loggins_path) do |form| %>
+
+ <div class = "signin_form">
+ 	<%= form.label :email %>
+ 	<br>
+ 	<%= form.text_area :email %>
+ </div>
+
+  <br>
+
+  <div class = "signin_form">
+ 	<%= form.label :password %>
+ 	<br>
+ 	<%= form.text_area :password %>
+ </div>
+ <br>
+ <div>
+ 	<%= form.submit "submit"%>
+ </div>
+ <% end %>
+ <br>
+ <%= link_to "Back To Home Page", users_path %>

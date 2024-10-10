@@ -1,0 +1,62 @@
+body{
+	text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-decoration-line: underline;
+  text-decoration-color: lightgoldenrodyellow;
+  background-image: url("game.avif");
+}
+
+.signup_form{
+ color: yellow;
+ font-size: 180%;
+ font-style: oblique;
+ text-shadow: 2px 4px 3px black;
+ }
+
+
+.signin_form{
+	font-size: 250%;
+	color: yellow;
+	font-style: oblique;
+	text-shadow: 2px 4px 3px black;
+}
+
+h1{
+	color: grey;
+	font-style: italic;
+	font-size: 500%;	
+	text-shadow: 2px 2px 2px yellow ;
+}
+
+a{
+	font-size: 150%;
+	color: white;
+	text-shadow: 3px 5px 3px black;
+	font-size: 200%;
+}
+
+a:visited{
+	font-size: 150%;
+	color: yellow;
+}
+
+a:active{
+	font-size: 150%;
+	color: darkolivegreen;
+}
+
+a:hover{
+	font-size: 150%;
+	color: grey;
+}
+input{
+	background-color: yellow;
+	width: 10%;
+	height: 100%;
+}
+
+#account_created{
+	color: white;
+	font-size: 200%;
+}

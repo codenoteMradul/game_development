@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	has_secure_password
   
-  before_save :downcase_email
+  # before_save :downcase_email
 
 	# validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" }, length: {minimum: 2},presence: true
   # validates :age, numericality: true,presence: true
@@ -10,9 +10,9 @@ class User < ApplicationRecord
   # validates :password, length: {minimum: 4},presence: true
 
 
- private
- def downcase_email
- 	email = email.downcase
- end
+ # private
+ # def downcase_email
+ # 	email = email.downcase
+ # end
  
 end
