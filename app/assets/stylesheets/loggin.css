@@ -1,0 +1,5 @@
+.invalid_password{
+	color: red;
+	font-size: 250%;
+	text-shadow: 2px 2px 2px black;
+}

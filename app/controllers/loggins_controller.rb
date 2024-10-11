@@ -1,7 +1,7 @@
 class LogginsController < ApplicationController
 
-	 def index
-	 end
+	def index
+	end
 
 	def show
 	end
@@ -12,9 +12,10 @@ class LogginsController < ApplicationController
 	def create
 		@user = User.find_by(email: params[:email])
 		if @user && @user.authenticate(params[:password])
-			redirect_to '/games'
+			redirect_to games_url
 		else
-			redirect_to '/users'
+			flash[:alert] = "Invalid Id or Password"
+			redirect_to new_loggin_url
 		end
 	end
 end

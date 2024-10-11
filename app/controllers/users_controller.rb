@@ -1,10 +1,13 @@
-class UsersController < ApplicationController
+	class UsersController < ApplicationController
 	def index
 	end
   
   def show
   end
-
+  
+  def point
+  end
+  
 	def new
 		@user = User.new
 	end
@@ -12,10 +15,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(users_params)
 		if @user.save
-		flash[:notice] = "Account is succesfully Created" 	
+		flash[:alert] = "Account Is Succesfully Created" 	
 			redirect_to @user
 		else
-			flash[:notice] = "Account Not Created"
+			flash[:warning] = "Account Not Created"
 			render :new,status: :unprocessable_entity
 		end
 	end

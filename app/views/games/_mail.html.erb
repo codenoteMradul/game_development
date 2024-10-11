@@ -1,0 +1,15 @@
+<h3 class = "heading_mail">Invite Friends</h3>
+
+<div class = "alert">
+<%= flash[:alert] %>
+</div>
+
+<%= form_with(model: @invitations) do |form| %>
+<div class = "mail">
+	<%= form.text_area :email %>
+</div>
+<br>
+<div>
+	<%= form.submit "send invitaion" %>
+</div>
+<% end %>

@@ -1,5 +1,15 @@
 <h1>Enter Details For Sign Up</h1>
 
+<div class = "errors_display">
+<% if @user.errors.any? %>
+	<% @user.errors.full_messages.find do |message| %>
+		 <h3> <%= message %></h3>
+	<% end %>
+<% end %>
+</div>
+
+<br>
+
 <%= form_with(model: @users, url: users_path) do |form| %>
 
 <div class = "signup_form">
@@ -7,6 +17,7 @@
 	<br>
 	<%= form.text_area :username %>
 </div>
+
 
 <div class = "signup_form">
 	<%= form.label :age %>

@@ -4,11 +4,23 @@ body{
   background-size: cover;
   text-decoration-line: underline;
   text-decoration-color: lightgoldenrodyellow;
-  background-image: url("game.avif");
+  background-image: url("modern.avif");
+}
+
+.points{
+	color: springgreen;
+	font-size: 200%;
+	text-shadow: 2px 2px 2px black;
+}
+
+.initial{
+font-size: 250%;
+color: gray;
+text-shadow: 2px 2px 2px red;
 }
 
 .signup_form{
- color: yellow;
+ color: red;
  font-size: 180%;
  font-style: oblique;
  text-shadow: 2px 4px 3px black;
@@ -17,16 +29,16 @@ body{
 
 .signin_form{
 	font-size: 250%;
-	color: yellow;
+	color: red;
 	font-style: oblique;
 	text-shadow: 2px 4px 3px black;
 }
 
 h1{
-	color: grey;
+	color: red;
 	font-style: italic;
 	font-size: 500%;	
-	text-shadow: 2px 2px 2px yellow ;
+	text-shadow: 6px 6px 6px black ;
 }
 
 a{
@@ -48,15 +60,42 @@ a:active{
 
 a:hover{
 	font-size: 150%;
-	color: grey;
+	color: lightgray;
 }
 input{
-	background-color: yellow;
+	background-color: red;
 	width: 10%;
 	height: 100%;
 }
 
 #account_created{
-	color: white;
+	color: yellow;
 	font-size: 200%;
+	text-shadow: 3px,3px,3px yellow;
+	font-style: revert-layer;
+}
+.errors_display{
+	color: red;
+	font-size: 150%;
+	text-shadow: 2px 2px 2px black;
+
+}
+
+.mail{
+	font-size: 100%;
+	color: yellow;
+	text-shadow: 2px 2px 2px black;
+}
+.heading_mail{
+	font-style: italic;
+	color: yellow;
+	font-size: 250%;
+	text-shadow: 2px 2px 2px black;
+}
+
+.alert{
+	color: red;
+	font-size: 150%;
+	text-shadow: 2px 2px 2px black;
+
 }
