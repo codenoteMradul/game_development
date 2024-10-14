@@ -2,8 +2,6 @@ body{
 	text-align: center;
   background-repeat: no-repeat;
   background-size: cover;
-  text-decoration-line: underline;
-  text-decoration-color: lightgoldenrodyellow;
   background-image: url("modern.avif");
 }
 
@@ -63,9 +61,16 @@ a:hover{
 	color: lightgray;
 }
 input{
-	background-color: red;
+	/*background-color: red;
 	width: 10%;
-	height: 100%;
+	height: 100%;*/
+  background-color: gray;
+  border: 100%;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 70px;
 }
 
 #account_created{
@@ -75,6 +80,8 @@ input{
 	font-style: revert-layer;
 }
 .errors_display{
+	text-decoration-line: underline;
+  text-decoration-color: lightgoldenrodyellow;
 	color: red;
 	font-size: 150%;
 	text-shadow: 2px 2px 2px black;
@@ -97,5 +104,22 @@ input{
 	color: red;
 	font-size: 150%;
 	text-shadow: 2px 2px 2px black;
+}
 
+#random_number{
+	text-decoration-line: underline;
+  text-decoration-color: lightgray;
+	color: red;
+	font-size: 900%;
+	text-shadow: 2px 2px 2px yellow;
+}
+
+.button{
+  background-color: gray;
+  border: 100%;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 70px;
 }

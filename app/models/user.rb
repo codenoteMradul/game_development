@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
   
-
   validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true
   validates :age, numericality: true,presence: true
   validates :city,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" }

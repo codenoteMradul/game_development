@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'show',to: "loggins#show"
   get 'points',to: "users#point"
   get 'index',to: "games#index"
+  get 'start',to: "games#game"
+
   # resources :loggins
 
   # get 'create',to:"loggins#create"
