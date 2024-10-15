@@ -8,19 +8,10 @@ Rails.application.routes.draw do
   resources :users
   resources :loggins
   resources :games
+    
   get 'show',to: "loggins#show"
   get 'points',to: "users#point"
   get 'index',to: "games#index"
   get 'start',to: "games#game"
 
-  # resources :loggins
-
-  # get 'create',to:"loggins#create"
-
-  # get 'users',to: "users#index"
-  # get 'users_new',to: "users#new"
-  # post 'users',to: "users#create"
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

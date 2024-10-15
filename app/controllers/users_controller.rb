@@ -15,11 +15,11 @@
 	def create
 		@user = User.new(users_params)
 		if @user.save
-		flash[:alert] = "Account Is Succesfully Created" 	
-			redirect_to @user
+		 flash[:alert] = "Account Is Succesfully Created" 	
+		 redirect_to @user
 		else
-			flash[:warning] = "Account Not Created"
-			render :new,status: :unprocessable_entity
+		 flash[:warning] = "Account Not Created"
+		 render :new,status: :unprocessable_entity
 		end
 	end
 
