@@ -2,13 +2,8 @@ $(document).ready(function(){
   $("#button").click(function(){
     var random = $(".random_number").val();
     var value = $("#game").val();
-    var sum = 0;
-     for(;value>0;){
-      var rem = value%10;
-      sum = sum+rem;
-        rem = rem/10;
-    debugger  
-      }
+    var sum = value.split('').reduce(function(total, digit) { return total + parseInt(digit); }, 0);
+    debugger
         if(sum == random){
           alert("correct answer")
         }
