@@ -8,7 +8,15 @@
   <div class = "points">
    <p> Score: <%= @user.points %></p> 
   </div>
- 
+  
+  <div class = "points">
+   <p>user: <%= @user.username %></p>
+  </div>
+
+  <span class = 'logout'>
+    <%= link_to "logout", users_path %>
+  </span>
+
   <div>
   <form id = "click">         
     <input id = "game" type ="text" name = "answer"> <button id="button" >submit</button><br> <br>  
