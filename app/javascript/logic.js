@@ -1,14 +1,29 @@
-$(document).ready(function(){
+$(document).ready(function(){  
+  var score = []
   $("#button").click(function(){
-    var random = $(".random_number").val();
-    var value = $("#game").val();
+    var point = 0
+    var random = $("#number")[0].value;
+    var value = $("#game").val();  
     var sum = value.split('').reduce(function(total, digit) { return total + parseInt(digit); }, 0);
-    debugger
-        if(sum == random){
-          alert("correct answer")
-        }
-        else{
-          alert("wrong answer")
-        }    
-  })
-})
+    if(sum == random){
+      point += 50  
+      var up_point = $(".points")[0].innerHTML =  point
+    }
+    else{
+      point -= 100
+      var down_point = $(".points")[0].innerHTML = point
+      alert("Game Over")          
+    }    
+
+    $.ajax({
+      url: '/final_point',
+      type: 'GET',
+      dataType: 'script',
+      data: {point: $(".points")[0].innerHTML},
+      success: function(){
+        $(window).scrollTop();
+      }
+    });
+  });
+});
+  

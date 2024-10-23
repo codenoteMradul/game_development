@@ -1,41 +1,41 @@
+<div id = "gamepage">
 
-<div class = "random_number">
- <%= random = rand(5..25) %>
-</div>
+  <div id = "random_number">
+    <%= ran = rand(10..25) %>
+    <%= hidden_field_tag :number, ran %> 
+  </div>
+ 
+  <div class = "points">
+   <p> Score: <%= @user.points %></p> 
+  </div>
+ 
+  <div>
+  <form id = "click">         
+    <input id = "game" type ="text" name = "answer"> <button id="button" >submit</button><br> <br>  
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+   <br>
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+   <br>
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+   <br>
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+    <br>
+  </form>
 
-<%= flash[:notice] %>
-<span class = "points-style">
-<%= @point.username %>
-<br>
-<%= @point.points %>
-</span>
-
-<div>
-<form>         
-  <input id = "game" type ="text" name = "answer"> <button id = "button">submit</button><br> <br>  
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
- <br>
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
+  </div>
+  <%= link_to "restart", start_path %>
   <br>
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
- <br>
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
-  <br>
-</form>
-
+  <%= link_to "quit", games_path %>
 </div>
-<%= link_to "restart", start_path %>
-<br>
-<%= link_to "quit", games_path %>
