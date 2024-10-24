@@ -1,0 +1,34 @@
+<div id=number>
+  <p class="target-number"> Target<strong> <%= target_number %></strong></p>
+</div>
+
+<%= form_with url: game_check_sum_path, method: :post do %>
+ <%= hidden_field_tag :target_number, target_number %>
+  <div class="choose-number">
+    <% choose_number.each_with_index do |number, index| %>
+    <div class="grid-item">
+      <%= check_box_tag 'number[]', number, false, id: "number_#{index}" %>
+      <label for="number_<%= index %>"><%= number%></label>
+    </div>
+    <% end %>
+  </div>
+
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<style>
+
+  .target-number{
+    background: white;
+  }
+  .choose-number{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    max-width: 300px;
+    margin-bottom: 20px ;
+    color: yellow;
+    font-size: 30px;
+  }
+
+</style>

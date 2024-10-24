@@ -1,0 +1,7 @@
+<%= turbo_stream.replace 'game-grid' do %>
+  <%= render partial: 'game/grid', locals: { target_number:  @target_number, choose_number: @choose_number} %>
+<% end %>
+
+<%= turbo_stream.replace 'points' do %>
+ <p class="point"> point<strong> <%= session[:points] %></strong></p>
+<% end %>

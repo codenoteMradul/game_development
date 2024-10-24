@@ -1,0 +1,13 @@
+<h1> Number </h1>
+
+<div id=points>
+  <p class="point"> point<strong> <%= session[:points] ||=0 %></strong></p>
+</div>
+<style>
+  .point{
+    background: white;
+  }
+</style>
+<%= turbo_frame_tag 'game-grid' do %>
+  <%= render partial: 'game/grid', locals: { target_number:  @target_number, choose_number: @choose_number} %>
+<% end %>
