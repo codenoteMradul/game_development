@@ -20,7 +20,6 @@ class GamesController < ApplicationController
      else
        @user = User.find_by(email: session[:email])
        @user.update!(points: @user.points-100)
-       binding.pry
        redirect_to leaderboard_url
      end
   end

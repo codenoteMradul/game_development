@@ -13,7 +13,6 @@ $(document).ready(function(){
       point -= 100
       var down_point = $(".points")[0].innerHTML = point
       alert("Game Over")       
-      // window.location.href = '/game_over';
     }    
 
     $.ajax({
