@@ -1,21 +1,15 @@
-<div id = "gamepage">
-
+  <nav>
+    <sapn class="game_nav">user: <%= @user.username%></span>
+    <sapn class="logout"><%= link_to "logout", users_path %></span>
+  </nav>
   <div id = "random_number">
     <%= ran = rand(10..25) %>
     <%= hidden_field_tag :number, ran %> 
   </div>
- 
-  <div class = "points">
-   <p> Score: <%= @user.points %></p> 
-  </div>
-  
-  <div class = "points">
-   <p>user: <%= @user.username %></p>
-  </div>
 
-  <span class = 'logout'>
-    <%= link_to "logout", users_path %>
-  </span>
+  <div class="points">
+    <%= @user.points %>
+  </div>
 
   <div>
   <form id = "click">         
@@ -46,4 +40,3 @@
   <%= link_to "restart", start_path %>
   <br>
   <%= link_to "quit", games_path %>
-</div>

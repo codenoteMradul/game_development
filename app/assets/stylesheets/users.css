@@ -6,9 +6,10 @@ body{
 }
 
 .points{
-	color: springgreen;
-	font-size: 200%;
+	color: lightgray;
+	font-size: 20px;
 	text-shadow: 2px 2px 2px black;
+  margin-bottom: 30px;
 }
 
 .initial{
@@ -37,6 +38,7 @@ h1{
 	font-style: italic;
 	font-size: 500%;	
 	text-shadow: 6px 6px 6px black ;
+  text-decoration-line: underline;
 }
 
 a{
@@ -103,7 +105,7 @@ input{
 	text-shadow: 2px 2px 2px black;
 }
 
-.random_number{
+#random_number{
 	text-decoration-line: underline;
   text-decoration-color: lightgray;
 	color: red;
@@ -122,6 +124,54 @@ input{
 }
 .points-style{
   color: yellow;
-  font-size: 150%;
+  font-size: 300%;
   float: left;
+}
+.final_score{
+  color: navajowhite;
+  font-size: 30px;
+}
+.rank{
+  color: lightgray;
+  font-size: 30px;
+}
+.table{
+  color: yellow;
+  font-style: italic;
+  background-color: black;
+  min-width: 400px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  margin-left: 39%;
+  margin-top: -10%;
+}
+.head{
+  text-decoration-line:underline;
+  color: lightgray;
+  font-size: 40px;
+  background-color: black;
+}
+nav{
+  text-align: right;
+  color: yellow;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px black;
+  padding: 40px;
+
+}
+.logout{
+  font-size: 20px;
+  background-color: black;
+}
+.game_nav{
+  background-color: black;
+  padding: 30px;
+}
+.home_nav{
+  margin-right: 1%;
+  font-size: 20px;
+  background-color: black;
+  padding: 20px;
 }

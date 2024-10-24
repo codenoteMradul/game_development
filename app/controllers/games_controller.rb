@@ -1,11 +1,13 @@
 class GamesController < ApplicationController
-	def index
+	def index 
 	end
 
 	def lose
+    @user = User.find_by(email: session[:email])
 	end
 
-  def play
+  def leaderboard
+   @rank = User.order(:rank)
   end
 
   def point
@@ -14,11 +16,12 @@ class GamesController < ApplicationController
    session['get'] = @score
      if session['get'] == 50
        @user = User.find_by(email: session[:email])
-       @user.update(points: @user.points+50)
+       @user.update!(points: @user.points+50)
      else
-       session['get'] -= 0
        @user = User.find_by(email: session[:email])
-       @user.update(points: @user.points-100)
+       @user.update!(points: @user.points-100)
+       binding.pry
+       redirect_to leaderboard_url
      end
   end
   
@@ -27,7 +30,7 @@ class GamesController < ApplicationController
   end			
 
 	def create
-	 @invitation = Invitation.find_by(email: params[:email])	
+	 Invitation.find_by(email: params[:email])	
 	 if UserMailer.invitation_mail(params[:email]).deliver_now
   	  if params[:email].blank?
     	 	 flash[:alert] = "email can't be blank"

@@ -1,0 +1,23 @@
+<h1>LEADERBOARD</h1>
+ 
+  <table class = "table">
+    <thead class="head"> 
+      <tr>
+        <th> NAME </th>
+        <th> POINTS </th>
+        <th>RANK </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rank.each do |rank|%>
+      <tr>
+        <td><%= rank.username %></td>
+        <td><%= rank.points %></td>
+        <td><%= rank.rank%></td>
+      </tr><br><br>
+     <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to "HOME", games_path %><br><br>
+  <%= link_to "PLAY GAME", start_path %>
