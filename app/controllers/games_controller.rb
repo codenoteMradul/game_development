@@ -1,9 +1,10 @@
 class GamesController < ApplicationController
+  layout "logic"
 	def index 
 	end
 
 	def lose
-    @user = User.find_by(email: session[:email])
+   @user = User.find_by(email: session[:email])
 	end
 
   def leaderboard
@@ -11,17 +12,15 @@ class GamesController < ApplicationController
   end
 
   def point
-   session['get'] = 0
-   @score = params["point"].to_i
-   session['get'] = @score
-     if session['get'] == 50
-       @user = User.find_by(email: session[:email])
-       @user.update!(points: @user.points+50)
-     else
-       @user = User.find_by(email: session[:email])
-       @user.update!(points: @user.points-100)
-       redirect_to leaderboard_url
-     end
+    @score = params["point"].to_i
+    session['get'] = @score
+    @user = User.find_by(email: session[:email])
+    if session['get'] == 50
+      @user.update!(points: @user.points+50)
+    else
+      @user.update!(points: @user.points-100)
+      redirect_to game_over_url
+    end
   end
   
   def game
