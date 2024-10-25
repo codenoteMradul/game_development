@@ -1,5 +1,6 @@
 	class UsersController < ApplicationController
-	def index
+	def index  
+   @rank = User.order(:rank)
 	end
   
   def show
@@ -9,7 +10,7 @@
   end
   
 	def new
-		@user = User.new
+	 @user = User.new
 	end
 
 	def create

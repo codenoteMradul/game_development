@@ -1,0 +1,19 @@
+<h2>leaderboard</h2>
+<table class = "table">
+  <thead class="head"> 
+    <tr>
+      <th> NAME </th>
+      <th> POINTS </th>
+      <th>RANK </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rank.each do |rank|%>
+    <tr>
+      <td><%= rank.username %></td>
+      <td><%= rank.points %></td>
+      <td><%= rank.rank%></td>
+    </tr><br><br>
+   <% end %>
+  </tbody>
+</table>

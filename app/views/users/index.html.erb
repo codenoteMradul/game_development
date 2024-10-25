@@ -1,10 +1,9 @@
-<div id = "home"><br>
+<nav>
+  <span class="home_nav"><%= link_to "Sign up",new_user_path %></span>
+  <sapn class="home_nav"><%= link_to "Sign In", new_loggin_path %></sapn>
+</nav>
 <h1>Welcome To Game</h1>
+<br><br>
+<%= render 'leaderboard' %>
 
-<h3 class = "initial"> Create Account </h3>
 
-<%= link_to "Sign up",new_user_path %>
-<br> <br>
-<h3 class = "initial"> Enter To Play </h3>
-<%= link_to "Sign In", new_loggin_path %>
-</div>
