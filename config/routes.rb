@@ -8,10 +8,16 @@ Rails.application.routes.draw do
   resources :users
   resources :loggins
   resources :games
+  resources :game
+
+  post 'game/check_sum', to:'game#check_sum', as:'game_check_sum'
     
   get 'show',to: "loggins#show"
   get 'points',to: "users#point"
   get 'index',to: "games#index"
   get 'start',to: "games#game"
-
+  get 'final_point',to: "games#point"
+  get 'game_over',to: "games#lose"
+  get 'leaderboard',to: "games#leaderboard"
+  get 'eventlog',to: "games#eventlog"
 end

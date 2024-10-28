@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	has_secure_password
    
   has_many :invitations
-  has_many :eventlogs
+  has_one :eventlog,dependent: :destroy
 
   validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true
   validates :age, numericality: true,presence: true
@@ -13,8 +13,15 @@ class User < ApplicationRecord
   validates :points, :numericality => { :greater_than_or_equal_to => -100 }
 
   after_save :rank_update, if: :saved_change_to_points?
+  after_create :create_event_log
+
+
 
   private
+   def create_event_log
+    Eventlog.update!(actions: "create account",user_id: self.id,username: self.username,time: Time.now)
+   end
+
   def rank_update
     users = User.select("id, RANK() OVER(ORDER BY points DESC) AS ranks")
     user_ranks ={}

@@ -84,7 +84,11 @@ input{
 	color: red;
 	font-size: 150%;
 	text-shadow: 2px 2px 2px black;
-
+}
+.invalid_password{
+  color: red;
+  font-size: 250%;
+  text-shadow: 2px 2px 2px black;
 }
 
 .mail{
@@ -145,7 +149,7 @@ input{
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   margin-left: 39%;
-  margin-top: -10%;
+  margin-top: -9
 }
 .head{
   text-decoration-line:underline;
@@ -154,17 +158,13 @@ input{
   background-color: black;
 }
 nav{
-  text-align: right;
+  text-align: right;  
   color: yellow;
-  font-size: 30px;
-  text-shadow: 2px 2px 2px black;
-  padding: 40px;
-
-}
-.logout{
   font-size: 20px;
-  background-color: black;
+  text-shadow: 2px 2px 2px black;
+  padding: 10px;
 }
+
 .game_nav{
   background-color: black;
   padding: 30px;
@@ -174,4 +174,37 @@ nav{
   font-size: 20px;
   background-color: black;
   padding: 20px;
+}
+.two_games{
+  font-size: 20px;
+  padding: 30px;
+  color: gray;
+}
+button{
+  color: red;
+  background-color: black;
+  padding: 15px;
+}
+.point{
+  font-size: 10px;
+  color: lightgray;
+}
+h2{
+font-size: 30px;
+color: red;
+text-shadow: 2px 2px 2px black;
+font-style: italic;
+text-decoration: underline;
+}
+.eventlog_table{
+  color: yellow;
+  font-style: italic;
+  background-color: black;
+  min-width: 400px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  margin-left: 32%;
+  margin-top: 4%;
 }

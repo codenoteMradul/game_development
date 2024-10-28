@@ -3,12 +3,16 @@ class GamesController < ApplicationController
 	def index 
 	end
 
+  def eventlog
+    @event = Eventlog.all
+  end
+
 	def lose
    @user = User.find_by(email: session[:email])
 	end
 
   def leaderboard
-   @rank = User.order(:rank)
+   @rank = User.order(:rank) 
   end
 
   def point
