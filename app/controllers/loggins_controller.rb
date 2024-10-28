@@ -13,7 +13,9 @@ class LogginsController < ApplicationController
 	 @user = User.find_by(email: params[:email])
 	  if @user && @user.authenticate(params[:password])
       session['email'] = @user.email
-		 redirect_to games_url
+      session['name'] = @user.username
+      after_authentication(@user)
+		  redirect_to games_url
 		else
 		 flash[:alert] = "Invalid Id or Password"
 		 redirect_to new_loggin_url
@@ -22,6 +24,6 @@ class LogginsController < ApplicationController
 
   private
   def after_authentication(user)
-    Eventlog.create!(actions: "login",time: Time.now)
+    Eventlog.create!(actions: "login",time: Time.current ,username: session['name'],user_id: user.id)
   end
 end

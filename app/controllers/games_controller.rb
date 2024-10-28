@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 	end
 
   def eventlog
-    @event = Eventlog.all
+    @event = Eventlog. where(username: session['name'])
   end
 
 	def lose
@@ -29,9 +29,11 @@ class GamesController < ApplicationController
   
   def game
    @user = User.find_by(email: session[:email])
+   after_start_game(@user)
   end			
 
 	def create
+   @user = User.find_by(email: session[:email])
 	 Invitation.find_by(email: params[:email])	
 	 if UserMailer.invitation_mail(params[:email]).deliver_now
   	  if params[:email].blank?
@@ -40,10 +42,20 @@ class GamesController < ApplicationController
     	else
     	 	flash[:alert] = "email send"
     	 	redirect_to games_url
+        after_mail_send(@user)
     	end
 	 else
 	 	flash[:alert] = "email is not valid"
 	 	redirect_to games_url	
 	 end
 	end
+
+  private
+  def after_mail_send(user)
+  Eventlog.create!(actions: "send mail",username: session['name'],time: Time.now,user_id: user.id) 
+  end
+
+  def after_start_game(user)
+  Eventlog.create!(actions: "play game",username: session['name'],time: Time.now,user_id: user.id) 
+  end
 end

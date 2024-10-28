@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	has_secure_password
    
   has_many :invitations
-  has_one :eventlog,dependent: :destroy
+  has_many :eventlog,dependent: :destroy
 
   validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true
   validates :age, numericality: true,presence: true
@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   private
    def create_event_log
-    Eventlog.update!(actions: "create account",user_id: self.id,username: self.username,time: Time.now)
+    Eventlog.create!(actions: "create account",user_id: self.id,username: self.username,time: Time.now)
    end
 
   def rank_update
