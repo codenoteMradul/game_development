@@ -87,7 +87,7 @@ input{
 }
 .invalid_password{
   color: red;
-  font-size: 250%;
+  font-size: 30px;
   text-shadow: 2px 2px 2px black;
 }
 
@@ -105,7 +105,7 @@ input{
 
 .alert{
 	color: red;
-	font-size: 150%;
+	font-size: 30px;
 	text-shadow: 2px 2px 2px black;
 }
 
@@ -149,7 +149,9 @@ input{
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   margin-left: 39%;
-  margin-top: -9
+  margin-top: -9%;
+  height: 400px;
+  overflow-y: auto;
 }
 .head{
   text-decoration-line:underline;

@@ -1,31 +1,21 @@
 <h1>Sign In</h1>
-
-</div class = "invalid_password">
- <h3> <%= flash[:alert] %> </h3>
-</div>
-
+ <h3 class = "invalid_password"> <%= flash[:alert] %> </h3>
  <%= form_with(url: loggins_path) do |form| %>
-
-<div class = "signin_form">
- 	<%= form.label :email %>
- <br>
-  <%= form.text_area :email %>
-</div>
-
- <br>
-
-<div class = "signin_form">
-  <%= form.label :password %>
- <br>
-  <%= form.text_area :password %>
-</div>
-
- <br>
-
-<div>
- 	<%= form.submit "Submit" %>
-</div>
-
+  <div class = "signin_form">
+   	<%= form.label :email %>
+   <br>
+    <%= form.text_area :email %>
+  </div>
+   <br>
+  <div class = "signin_form">
+    <%= form.label :password %>
+   <br>
+    <%= form.text_area :password %>
+  </div>
+   <br>
+  <div>
+   	<%= form.submit "Submit" %>
+  </div>
  <% end %>
  <br>
  <%= link_to "Back To Home Page", users_path %>

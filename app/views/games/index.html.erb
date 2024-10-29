@@ -1,9 +1,15 @@
+<nav>
+  <%= link_to "logout", users_path %>
+</nav>
 <h1>MENU</h1>
-<%= link_to "Play",start_path %> 	
+<button id="play"><%= link_to "Play",start_path %></button> 	
 <br><br>
-<%= link_to "Game Rules",points_path %>
+<button><%= link_to "Game Rules",points_path %></button>
 <br><br>
-<%= link_to "Quit Game",users_path %>
+<button><%= link_to "Eventlogs", eventlog_path %></button>
 <br><br>
-<%= link_to "Leaderboard", leaderboard_path %>
+<button><%= link_to "Leaderboard", leaderboard_path %></button>
+<br><br>
+<button><%= link_to "Quit Game",users_path %></button>
+<br><br>
 <%= render 'mail' %>
