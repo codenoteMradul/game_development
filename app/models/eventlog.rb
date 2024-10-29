@@ -1,3 +1,3 @@
 class Eventlog < ApplicationRecord
-  belongs_to :user, dependency: :destroy
+  belongs_to :user
 end
