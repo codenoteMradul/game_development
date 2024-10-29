@@ -1,17 +1,18 @@
-  <nav>
-    <sapn class="game_nav">user: <%= @user.username%></span>
-    <sapn class="logout"><%= link_to "logout", users_path %></span>
-  </nav>
-  <div id = "random_number">
-    <%= ran = rand(10..25) %>
-    <%= hidden_field_tag :number, ran %> 
-  </div>
+<nav>
+  <span class="game_nav">user: <%= @user.username%></span>
+  <span class="game_nav"><%= link_to "|logout|", users_path %></span>
+  <span class="game_nav"><%= link_to "|quit|", games_path %></span>
+</nav>
+<div id = "random_number">
+  <%= ran = rand(10..25) %>
+  <%= hidden_field_tag :number, ran %> 
+</div>
 
-  <div class="points">
-    <%= @user.points %>
-  </div>
-
-  <div>
+<div class="points">
+  <p>Score: <%= @user.points %></p>
+</div>
+  <button type="button" id="clear" onclick="document.getElementById('game').value = '';">Clear</button>
+<div>
   <form id = "click">         
     <input id = "game" type ="text" name = "answer"> <button id="button" >submit</button><br> <br>  
     <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
@@ -35,8 +36,4 @@
     <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">
     <br>
   </form>
-
-  </div>
-  <%= link_to "restart", start_path %>
-  <br>
-  <%= link_to "quit", games_path %>
+</div>
