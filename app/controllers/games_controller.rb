@@ -40,6 +40,7 @@ class GamesController < ApplicationController
 	 if UserMailer.invitation_mail(params[:email]).deliver_now
      flash[:notice] = "Email sent"
      after_mail_send(user)
+     add_points(user)
 	 else
 	 	flash[:alert] = "failed to sent mail"
 	 	redirect_to games_url	
@@ -57,4 +58,8 @@ class GamesController < ApplicationController
   def after_start_game(user)
    Eventlog.create!(actions: "play game",username: user.username,time: Time.now,user_id: user.id) 
   end 
+
+  def add_points(user)
+    User.update!(points: user.points + 200)
+  end
 end
