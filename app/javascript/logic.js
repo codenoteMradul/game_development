@@ -4,26 +4,34 @@ $(document).ready(function(){
     var random = $("#number")[0].value;
     var value = $("#game").val();  
     var sum = value.split('').reduce(function(total, digit) { return total + parseInt(digit); }, 0);
-    debugger
     if(sum == random){
       point += 50  
-      var up_point = $(".points")[0].innerHTML = point
+      $(".points").text(point);
     }
     else{ 
       point -= 100
-      var down_point = $(".points")[0].innerHTML = point
-      alert("Game Over")       
+      $(".points").text(point)
+      alert("Game Over"); 
+      window.location.href = '/game_over'
     }    
 
     $.ajax({
       url: '/final_point',
       type: 'GET',
       dataType: 'script',
-      data: {point: $(".points")[0].innerHTML},
+      data: {point:  point},
       success: function(){
         $(window).scrollTop();
       }
     });    
   }); 
+ $('#play').click(function(){
+    setTimeout(time, 3000);
+    function time(){
+    alert("timeup")
+    window.location.href = '/game_over';
+    }
+ })
 });
   
+

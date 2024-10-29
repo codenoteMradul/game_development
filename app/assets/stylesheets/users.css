@@ -13,9 +13,9 @@ body{
 }
 
 .initial{
-font-size: 250%;
-color: gray;
-text-shadow: 2px 2px 2px red;
+  font-size: 250%;
+  color: gray;
+  text-shadow: 2px 2px 2px red;
 }
 
 .signup_form{
@@ -23,7 +23,7 @@ text-shadow: 2px 2px 2px red;
  font-size: 180%;
  font-style: oblique;
  text-shadow: 2px 4px 3px black;
- }
+}
 
 
 .signin_form{
@@ -70,6 +70,7 @@ input{
   text-align: center;
   display: inline-block;
   font-size: 70px;
+  border-radius: 30px;
 }
 
 #account_created{
@@ -152,6 +153,7 @@ input{
   margin-top: -9%;
   height: 400px;
   overflow-y: auto;
+
 }
 .head{
   text-decoration-line:underline;
@@ -185,7 +187,9 @@ nav{
 button{
   color: red;
   background-color: black;
-  padding: 15px;
+  padding: 15px 20px;
+  cursor:pointer;
+  border-radius: 30px;
 }
 .point{
   font-size: 10px;
