@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get 'game_over',to: "games#lose"
   get 'leaderboard',to: "games#leaderboard"
   get 'eventlog',to: "games#eventlog"
+  get 'rules',to: "users#rules"
 end
