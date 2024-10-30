@@ -59,7 +59,6 @@ class GamesController < ApplicationController
    Eventlog.create!(actions: "play game",username: user.username,time: Time.now,user_id: user.id) 
   end 
   def add_points(user)
-    binding.pry
    user.update!(points: user.points + 200)
   end
 end
