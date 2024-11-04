@@ -2,8 +2,8 @@
 <%= link_to "play by js",start_path %><br>
 <%= link_to "play by turbostream",game_index_path %>
 </nav>
-<h1>LEADERBOARD</h1>
- 
+ <%= will_paginate @rank%>
+<h1>LEADERBOARD</h1><br><br>
   <table class = "table">
     <thead class="head"> 
       <tr>
@@ -24,4 +24,5 @@
   </table>
   <br>
   <%= link_to "HOME", games_path %><br><br>
-  <%= link_to "PLAY GAME", start_path %>
+  <%= link_to "PLAY GAME", games_path %>
+  

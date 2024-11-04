@@ -27,9 +27,12 @@ gem "pry"
 
 gem "mysql2"
 
+gem "will_paginate"
+
 gem "bcrypt"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

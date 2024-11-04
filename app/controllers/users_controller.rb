@@ -1,6 +1,6 @@
 	class UsersController < ApplicationController
 	def index  
-   @rank = User.order(:rank)
+    @rank = User.order(:rank).paginate(page: params[:page],per_page:4)
 	end
   
   def show

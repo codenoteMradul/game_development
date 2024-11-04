@@ -1,0 +1,19 @@
+<h1>EventLogs of User</h1>
+<table class="eventlog_table">
+ <tr>
+  <th>|Time|</th>
+  <th>|Username|</th>
+  <th>|Actions|</th>
+ </tr>
+ <tr>
+   <% @event.each do |event| %>
+   <td><%= event.time %></td>
+   <td><%= event.username %></td>
+   <td><%= event.actions %></td>
+ </tr>
+   <% end %>
+</table>
+<br>
+<span class="pagination"><%= will_paginate @event %></span> 
+<br>
+<%= link_to "back", games_path %>

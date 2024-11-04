@@ -214,3 +214,7 @@ text-decoration: underline;
   margin-left: 32%;
   margin-top: 4%;
 }
+.pagination{
+  color: whitesmoke;
+  font-size: 16px;
+}
