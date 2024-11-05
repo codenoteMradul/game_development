@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  include EventlogsAction
   layout "logic"
 
 	def index 
@@ -46,19 +47,8 @@ class GamesController < ApplicationController
   	 	 redirect_to games_url	
   	  end
     rescue StandardError => e 
-     flash[:alert] = "An error occurs: #{e.message}"
+     flash[:alert] = "An error occurs: #{e}"
     end
     redirect_to games_url
 	end
-
-  private
-  def after_mail_send(user)
-    Eventlog.create!(actions: "send mail",username: user.username,time: Time.now,user_id: user.id) 
-  end
-  def after_start_game(user)
-    Eventlog.create!(actions: "play game",username: user.username,time: Time.now,user_id: user.id) 
-  end 
-  def add_points(user)
-    user.update!(points: user.points + 200)
-  end
 end

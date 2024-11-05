@@ -1,4 +1,5 @@
 class LogginsController < ApplicationController
+  include EventlogsAction
 
 	def index
 	end
@@ -14,6 +15,7 @@ class LogginsController < ApplicationController
   	  @user = User.find_by(email: params[:email])
   	  if @user && @user.authenticate(params[:password])
         session['email'] = @user.email
+        session['name'] = @user.username  
         after_authentication(@user)
   		  redirect_to games_url
   		else
@@ -24,10 +26,5 @@ class LogginsController < ApplicationController
       flash[:alert] = "An error occurs:#{e.message}"
       redirect_to loggin_url
   	end
-  end
-
-  private
-  def after_authentication(user)
-    Eventlog.create!(actions: "login",time: Time.current ,username: session['name'],user_id: user.id)
   end
 end
