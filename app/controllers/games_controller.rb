@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  include EventlogsAction
+  include EventlogsAction 
   layout "logic"
 
 	def index 
@@ -36,10 +36,10 @@ class GamesController < ApplicationController
 
 	def create
     user = User.find_by(email: session[:email])
-	  Invitation.find_by(email: params[:email])
     begin
   	  if UserMailer.invitation_mail(params[:email]).deliver_now
         flash[:notice] = "Email sent"
+        invite(user)
         after_mail_send(user)
         add_points(user)
   	  else
