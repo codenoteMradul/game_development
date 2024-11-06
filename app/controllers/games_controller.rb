@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  include EventlogsAction 
+  include ApplicationHelper
   layout "logic"
 
 	def index 
@@ -11,6 +11,7 @@ class GamesController < ApplicationController
 
 	def lose
     @user = User.find_by(email: session['email'])
+    @event = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
 	end
 
   def leaderboard
@@ -25,13 +26,13 @@ class GamesController < ApplicationController
       @user.update!(points: @user.points+50)
     else
       @user.update!(points: @user.points-100)
-      redirect_to game_over_url
+      create_event_log("game over", @user)
     end
   end
   
   def game
     @user = User.find_by(email: session[:email])
-    after_start_game(@user)
+    create_event_log("play game", @user)
   end			
 
 	def create
@@ -40,11 +41,10 @@ class GamesController < ApplicationController
   	  if UserMailer.invitation_mail(params[:email]).deliver_now
         flash[:notice] = "Email sent"
         invite(user)
-        after_mail_send(user)
+        create_event_log("send mail", user)
         add_points(user)
-  	  else
+      else
   	 	 flash[:alert] = "failed to sent mail"
-  	 	 redirect_to games_url	
   	  end
     rescue StandardError => e 
      flash[:alert] = "An error occurs: #{e}"

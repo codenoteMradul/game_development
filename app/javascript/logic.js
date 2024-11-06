@@ -11,8 +11,8 @@ $(document).ready(function(){
     else{ 
       point -= 100
       $(".points").text(point)
-      alert("Game Over"); 
       window.location.href = '/game_over'
+      alert("Game Over"); 
     }    
 
     $.ajax({
@@ -26,7 +26,7 @@ $(document).ready(function(){
     });    
   }); 
  $('#play').click(function(){
-    setTimeout(time, 3000);
+    setTimeout(time, 100);
     function time(){
     alert("timeup")
     window.location.href = '/game_over';
