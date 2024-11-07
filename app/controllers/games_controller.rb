@@ -51,4 +51,10 @@ class GamesController < ApplicationController
     end
     redirect_to games_url
 	end
+
+  def destroy
+    user = User.find_by(email: session[:email])
+    user.destroy
+    redirect_to users_url
+  end
 end

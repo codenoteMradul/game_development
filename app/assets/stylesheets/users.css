@@ -134,7 +134,7 @@ input{
 }
 .final_score{
   color: navajowhite;
-  font-size: 30px;
+  font-size: 40px;
 }
 .rank{
   color: lightgray;
@@ -217,4 +217,11 @@ text-decoration: underline;
 .pagination{
   color: whitesmoke;
   font-size: 16px;
+}
+.lose{
+  padding: 20px;
+}
+.logout{
+  padding: 20px;
+  background-color: black;
 }

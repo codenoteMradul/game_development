@@ -1,5 +1,6 @@
 <nav>
-  <%= link_to "logout", users_path %>
+  <span class="logout"><%= link_to "logout", users_path %></span>
+  <span class="logout"><%= link_to 'delete account', delete_path %></span>
 </nav>
 <h1>MENU</h1>
 <button id="play"><%= link_to "Play",start_path %></button> 	
