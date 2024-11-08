@@ -1,10 +1,10 @@
 <nav>
   <span class="home_nav"><%= link_to "Sign up",new_user_path %></span>
-  <sapn class="home_nav"><%= link_to "Sign In", new_loggin_path %></sapn>
+  <span class="home_nav"><%= link_to "Sign In", new_loggin_path %></span>
 </nav>
 <h1>Welcome To Game</h1>
-<%= link_to "Game Rules", rules_path %>
-<br><br><br><br><br>
+<span class="home_nav"><%= link_to "Game Rules", rules_path %></span>
+<br>
 <%= render 'leaderboard' %>
 
 

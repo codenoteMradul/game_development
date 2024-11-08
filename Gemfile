@@ -28,7 +28,7 @@ gem "pry"
 gem "mysql2"
 
 gem "will_paginate"
-
+gem 'caxlsx' # Update to a newer version
 gem "bcrypt"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"

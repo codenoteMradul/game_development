@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   layout "logic"
 
 	def index 
+    @user = User.find_by(email: session[:email])  
 	end
 
   def eventlog
@@ -55,6 +56,5 @@ class GamesController < ApplicationController
   def destroy
     user = User.find_by(email: session[:email])
     user.destroy
-    redirect_to users_url
   end
-end
+end   

@@ -1,19 +1,19 @@
 <nav>
-  <span class="game_nav">user: <%= @user.username%></span>
-  <span class="game_nav"><%= link_to "|logout|", users_path %></span>
-  <span class="game_nav"><%= link_to "|quit|", games_path %></span>
+  <span class="game_nav">User: <%= @user.username.upcase%></span>
+  <span class="game_nav"><%= link_to "logout", users_path %></span>
+  <span class="game_nav"><%= link_to "quit", games_path %></span>
 </nav>
-<div id = "random_number">
-  <%= ran = rand(10..25) %>
+<span id = "random_number">
+  <%= ran = rand(10..30) %>
   <%= hidden_field_tag :number, ran %> 
-</div>
+</span>
 
-<div class="points">
+<div>
   <p>Score: <%= @user.points %></p>
 </div>
-  <button type="button" id="clear" onclick="document.getElementById('game').value = '';">Clear</button>
+  <button id="clear" onclick="document.getElementById('game').value = '';">Clear</button>
 <div>
-  <form id = "click">         
+  <form>         
     <input id = "game" type ="text" name = "answer"> <button id="button" >submit</button><br> <br>  
     <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">  
     <input class ="numbers" type = "button" value = <%= a=rand(1...10) %> onclick = "answer.value += <%= a %> ">

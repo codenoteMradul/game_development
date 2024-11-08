@@ -1,10 +1,7 @@
 <h1>Game Over</h1>
-<h2 class = "final_score"><%= @user.username %> your final score is = <%= @user.points %></h2>
-<br>
-<%= link_to "Play Again", games_path %>
-<br><br>
-<%= link_to "Leaderboard", leaderboard_path %>
-<br><br>
-<%= link_to "Back To Home Page", users_path %>
-<br><br>
+<b class="final"><%= @user.username %> your final score is = <%= @user.points %><%=" points"%></b>
+<br><br><br><br>
+<span class="final_score"><%= link_to "Play Again", games_path %></span>
+<span class="final_score"><%= link_to "Leaderboard", leaderboard_path %></span>
+<span class="final_score"><%= link_to "Back To Home Page", users_path %></span>
 <%= render 'eventlog' %>

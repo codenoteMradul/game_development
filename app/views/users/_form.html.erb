@@ -11,46 +11,43 @@
 <br>
 
 <%= form_with(model: @users, url: users_path) do |form| %>
-
 <div class = "signup_form">
-	<%= form.label :username %>
+	<span class="Details"><%= form.label :username %></span>
 	<br>
 	<%= form.text_area :username %>
 </div>
-
-
-<div class = "signup_form">
-	<%= form.label :age %>
+ <br>
+<div>
+	<span class="Details"><%= form.label :age %></span>
 	<br>
 	<%= form.text_area :age %>
 </div>
-
-<div class = "signup_form">
-	<%= form.label :city %>
+ <br>
+<div>
+	<span class="Details"><%= form.label :city %></span>
 	<br>
 	<%= form.text_area :city %>
 </div>
-
-<div class = "signup_form">
-	<%= form.label :phone %>
+ <br>
+<div>
+	<span class="Details"><%= form.label :phone %></span>
 	<br>
 	<%= form.text_area :phone %>
 </div>
-
-<div class = "signup_form">
-	<%= form.label :email %>
+ <br>
+<div>
+	<span class="Details"><%= form.label :email %></span>
 	<br>
 	<%= form.text_area :email %>
 </div>
-
-<div class = "signup_form">
-	<%= form.label :password %>
+ <br>
+<div>
+	<span class="Details"><%= form.label :password %></span>
 	<br>
 	<%= form.text_area :password %>
 </div>
-<br>
+ <br>
 <div>
-	<%= form.submit "create account"%>
+	<%= form.submit "Create Account"%>
 </div>
-
 <% end %>
