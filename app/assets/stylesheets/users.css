@@ -218,12 +218,12 @@ text-decoration: underline;
   border-style: dotted;
   border-color: skyblue;
 }
-i{
-  font-size: 35px;
+.rules{
+  font-size: 30px;
   color: lightgray;
   text-decoration-line: underline ;
   background-color: black;
-  padding: 30px;
+  padding: 20px;
   border-radius: 30px;
   border-style: dotted;
   border-color: skyblue;
