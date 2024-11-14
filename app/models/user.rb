@@ -4,7 +4,7 @@
   has_many :invitations
   has_many :eventlogs,dependent: :destroy
 
-  validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true
+  validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true,uniqueness: true
   validates :age, numericality: true,presence: true
   validates :city,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" }
   validates :phone, numericality: true,presence: true,length: {maximum: 11},length: {minimum: 8}
