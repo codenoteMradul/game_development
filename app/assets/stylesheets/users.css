@@ -154,7 +154,7 @@ nav{
 }
 .home_nav{
   font-size: 20px;
-  background-color: black;
+  background-color:black;
   padding: 20px;
   border-radius: 30px;
   border-style: dotted;
@@ -235,9 +235,9 @@ text-decoration: underline;
   background-color: black;
   color: gray;
   font-size: 25px;
-  border-radius: 30px;
+  border-radius: 20px;
   text-decoration-line: underline;
-  padding: 10px;
+  padding: 10px 15px;
   border-style: groove;
   border-color: skyblue;
 }
@@ -287,4 +287,13 @@ input{
   border-style: dotted;
   border-color: skyblue;
 }
-
+textarea{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 5px 25px;
+}
+  

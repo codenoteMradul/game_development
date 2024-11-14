@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-  include ApplicationHelper
   layout "logic"
 
 	def index 
@@ -27,13 +26,13 @@ class GamesController < ApplicationController
       @user.update!(points: @user.points+50)
     else
       @user.update!(points: @user.points-100)
-      create_event_log("game over", @user)
+      User.create_event_log("game over", @user)
     end
   end
   
   def game
     @user = User.find_by(email: session[:email])
-    create_event_log("play game", @user)
+    User.create_event_log("play game", @user)
   end			
 
 	def create
@@ -41,9 +40,9 @@ class GamesController < ApplicationController
     begin
   	  if UserMailer.invitation_mail(params[:email]).deliver_now
         flash[:notice] = "Email sent"
-        invite(user)
-        create_event_log("send mail", user)
-        add_points(user)
+        Invitation.invite(user,params[:email])
+        User.create_event_log("send mail",user)
+        Invitation.add_points(user)
       else
   	 	 flash[:alert] = "failed to sent mail"
   	  end

@@ -1,15 +1,14 @@
 <span class = "heading_mail">Invite Friends</span>
-
-<div class = "alert">
-<%= flash[:alert] %>
-<%= flash[:notice] %>
-</div>
-<br>
+<br><br><br>
 <%= form_with(model: @invitations) do |form| %>
-<div class = "mail">
-	<%= form.text_area :email %>
-</div>
-<div class="submit">
-	<%= form.submit "Send Invitation" %>
-</div>
+  <div class = "mail">
+   <%= form.text_area :email, placeholder: "Enter Email"%>
+  </div>
+  <div class = "alert">
+   <%= flash[:alert] %>
+   <%= flash[:notice] %>
+  </div>
+  <div class="submit">
+   <%= form.submit "Send Invitation" %>
+  </div>
 <% end %>

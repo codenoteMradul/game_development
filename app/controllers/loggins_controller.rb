@@ -1,13 +1,14 @@
 class LogginsController < ApplicationController
-  include ApplicationHelper
- 
+  def new
+  end
+
 	def create
     begin
   	  @user = User.find_by(email: params[:email])
   	  if@user && @user.authenticate(params[:password])
         session['email'] = @user.email
         session['name'] = @user.username  
-        create_event_log("login",@user)
+        User.create_event_log("login",@user)
   		  redirect_to games_url
   		else
   		 flash[:alert] = "Invalid Id or Password"

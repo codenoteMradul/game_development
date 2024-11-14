@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     
   get 'rules',to: "users#rules"
   get 'points',to: "users#point"
-  get 'show',to: "loggins#show"
   get 'index',to: "games#index"
   get 'start',to: "games#game"
   get 'final_point',to: "games#point"
