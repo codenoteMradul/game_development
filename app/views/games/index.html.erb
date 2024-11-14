@@ -1,17 +1,17 @@
 <nav>
   <span class="user_display"> User : <%= @user.username.upcase %></span>
   <span class="logout"><%= link_to "logout", users_path %></span>
-  <span class="logout"><%= link_to 'delete account', delete_path %></span>
+  <span class="logout"><%= link_to 'delete account', delete_games_path %></span>
 </nav>
 <h1>MENU</h1>
-<span class="home_nav"><%= link_to "Play",start_path %></span> 	
+<span class="home_nav"><%= link_to "Play", start_games_path %></span>   
 <br><br><br><br>
-<span class="logout"><%= link_to "Game Rules",points_path %></span>
+<span class="logout"><%= link_to "Game Rules", points_users_path %></span>
 <br><br><br><br>
-<span class="logout"><%= link_to "Eventlogs", eventlog_path %></span>
-<br><br><br><br>
-<span class="logout"><%= link_to "Leaderboard", leaderboard_path %></span>
+<span class="logout"><%= link_to "Eventlogs", eventlog_games_path %></span>
+<br><br><br><br> 
+<span class="logout"><%= link_to "Leaderboard",leaderboard_games_path %></span>
 <br><br><br><br>
 <span class="logout"><%= link_to "Quit Game",users_path %></span>
 <br><br><br><br>
-<%= render 'mail' %>
+<%= render 'mail' %>      

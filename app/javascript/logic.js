@@ -1,5 +1,5 @@
 $(document).ready(function(){  
-  $("#button").click(function(){ 
+  $("#button").click(function(){  
     var point = 0
     var random = $("#number")[0].value;
     var value = $("#game").val();  
@@ -10,28 +10,25 @@ $(document).ready(function(){
     }
     else{ 
       point -= 100
-      $(".points").text(point)
-      window.location.href = '/game_over'
+      $(".points").text(point);
+      window.location.href = '/games/game_over'
       alert("Game Over"); 
     }    
-
     $.ajax({
-      url: '/final_point',
+      url: '/games/final_point',
       type: 'GET',
       dataType: 'script',
       data: {point:  point},
       success: function(){
         $(window).scrollTop();
       }
-    });    
-  }); 
- $('#play').click(function(){
-    setTimeout(time, 100);
+    });   
+    setTimeout(time, 5000);
     function time(){
+    window.location.href = '/games/game_over';
     alert("timeup")
-    window.location.href = '/game_over';
-    }
- })
+    } 
+  });    
 });
   
 
