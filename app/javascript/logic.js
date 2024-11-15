@@ -1,5 +1,6 @@
 $(document).ready(function(){  
-  $("#button").click(function(){  
+  $("#button").click(function(){ 
+    event.preventDefault(); 
     var point = 0
     var random = $("#number")[0].value;
     var value = $("#game").val();  
@@ -17,17 +18,18 @@ $(document).ready(function(){
     $.ajax({
       url: '/games/final_point',
       type: 'GET',
-      dataType: 'script',
-      data: {point:  point},
-      success: function(){
-        $(window).scrollTop();
+      dataType: 'script', 
+      data: { point: point},
+      success: function(response){
+        $(".points").text(response["points"]);
       }
     });   
-    setTimeout(time, 5000);
-    function time(){
-    window.location.href = '/games/game_over';
-    alert("timeup")
-    } 
+    // setTimeout(time, 1000000);
+    // function time(){
+    //   debugger
+    //   window.location.href = '/games/game_over';
+    //   alert("timeup")
+    // } 
   });    
 });
   
