@@ -1,53 +1,47 @@
 <h1>Enter Details For Sign Up</h1>
 
-<div class = "errors_display">
-<% if @user.errors.any? %>
-	<% @user.errors.full_messages.each do |message| %>
-		 <h3> <%= message %></h3>
-	<% end %>
-<% end %>
+<div class="errors_display">
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+       <h3><%= message %></h3>
+    <% end %>
+  <% end %>
 </div>
 
 <br>
 
 <%= form_with(model: @users, url: users_path) do |form| %>
-<div class = "signup_form">
-	<span class="Details"><%= form.label :username %></span>
-	<br>
-	<%= form.text_area :username, placeholder: "Username" %>
-</div>
- <br>
-<div>
-	<span class="Details"><%= form.label :age %></span>
-	<br>
-	<%= form.text_area :age, placeholder: "Age" %>
-</div>
- <br>
-<div>
-	<span class="Details"><%= form.label :city %></span>
-	<br>
-	<%= form.text_area :city, placeholder: "City" %>
-</div>
- <br>
-<div>
-	<span class="Details"><%= form.label :phone %></span>
-	<br>
-	<%= form.text_area :phone, placeholder: "Phone" %>
-</div>
- <br>
-<div>
-	<span class="Details"><%= form.label :email %></span>
-	<br>
-	<%= form.text_area :email, placeholder: "Example@gmail.com" %>
-</div>
- <br>
-<div>
-	<span class="Details"><%= form.label :password %></span>
-	<br>
-	<%= form.text_area :password, placeholder: "Password" %>
-</div>
- <br>
-<div>
-	<%= form.submit "Create Account"%>
-</div>
+  <div class = "signup_form">
+  	<span class="Details"><%= form.label :username %></span>
+  	<br>
+  	<%= form.text_field :username, placeholder: "allow only letters", required: true, minlength: 2, maxlength: 10, pattern: "[A-Za-z]*" %> 
+  </div>
+   <br>
+  <div>
+  	<span class="Details"><%= form.label :age %></span>
+  	<br>
+  	<%= form.number_field :age, placeholder: "minimum age 10", min: 10, max:100, required: true %>
+  </div>
+   <br>
+  <div>
+  	<span class="Details"><%= form.label :city %></span>
+  	<br>
+  	<%= form.text_field :city, placeholder: "City", minlength: 2, maxlength: 12, pattern: "[A-Za-z]*", required: true %>
+  </div>
+   <br>
+  <div>
+  	<span class="Details"><%= form.label :email %></span>
+  	<br>
+  	<%= form.email_field :email, placeholder: "Example@gmail.com", pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,}$", required: true %>
+  </div>
+   <br>
+  <div>
+  	<span class="Details"><%= form.label :password %></span>
+  	<br>
+  	<%= form.password_field :password, placeholder: "Password", required: true %>
+  </div>
+   <br>
+  <div>
+  	<%= form.submit "Create Account" %>
+  </div>
 <% end %>

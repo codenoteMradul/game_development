@@ -1,21 +1,33 @@
 class GamesController < ApplicationController
   layout "logic"
 
-  def show
-  end
-
 	def index 
     @user = User.find_by(email: session[:email])  
 	end
 
+
   def eventlog
-    @event = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
+    @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
   end
 
 	def lose
     @user = User.find_by(email: session['email'])
-    @event = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
+    @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
 	end
+
+  def create
+    user = User.find_by(email: session[:email])
+    begin
+      UserMailer.invitation_mail(params[:email]).deliver_now
+      flash[:notice] = "Email sent"
+      Invitation.invite(user,params[:email])
+      User.create_event_log("send mail",user)
+      Invitation.add_points(user)
+    rescue StandardError => e
+      flash[:notice] = "Error :#{e}"
+      redirect_to games_url
+    end
+  end
 
   def leaderboard
     @rank = User.order(:rank).paginate(page: params[:page],per_page:4)
@@ -27,14 +39,16 @@ class GamesController < ApplicationController
 
     @user = User.find_by(email: session[:email])
     if session['get'] == 50
-      @user.update!(points: @user.points+50)
+      points_up = 50
+      @user.update!(points: @user.points + points_up)
     else
-      @user.update!(points: @user.points-100)
+      points_down = 100
+      @user.update!(points: @user.points - points_down)
       User.create_event_log("game over", @user)
     end
     render js: <<~JS
       $('.points').text('#{@user.points}');
-      window.location.href = '/games/start'; // Change '/games/play' to the correct game URL
+      window.location.href = '/games/start';
     JS
   end
   
@@ -42,26 +56,4 @@ class GamesController < ApplicationController
     @user = User.find_by(email: session[:email])
     User.create_event_log("play game", @user)
   end			
-
-	def create
-    user = User.find_by(email: session[:email])
-    begin
-  	  if UserMailer.invitation_mail(params[:email]).deliver_now
-        flash[:notice] = "Email sent"
-        Invitation.invite(user,params[:email])
-        User.create_event_log("send mail",user)
-        Invitation.add_points(user)
-      else
-  	 	 flash[:alert] = "failed to sent mail"
-  	  end
-    rescue StandardError => e 
-     flash[:alert] = "An error occurs: #{e}"
-    end
-    redirect_to games_url
-	end
-
-  def destroy
-    user = User.find_by(email: session[:email])
-    user.destroy
-  end
 end   

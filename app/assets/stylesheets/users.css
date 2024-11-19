@@ -49,12 +49,11 @@ p{
 .heading_mail{
 	font-style: italic;
 	color: skyblue;
-	font-size: 35px;
+	font-size: 30px;
   background-color: black;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 10px;
-  text-decoration-line: underline;
-  border-style: dotted;
+  border-style: groove;
   border-color: skyblue;
 }
 
@@ -296,4 +295,57 @@ textarea{
   border-color: black;
   padding: 5px 25px;
 }
-  
+input#age{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 100px;
+}
+input#email{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 2px;
+}
+input#password{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 2px;
+}
+input#phone{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 15px;
+}
+input#username{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 70px;
+}
+input#city{
+  color: black;
+  background-color: skyblue;
+  border: 4px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: black;
+  padding: 8px 55px;
+}

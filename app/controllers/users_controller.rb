@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+ layout "reload"
+
 	def index  
     @rank = User.order(:rank).paginate(page: params[:page],per_page:4)
 	end
@@ -24,8 +26,13 @@ class UsersController < ApplicationController
 		end
 	end
 
+  def destroy
+    user = User.find_by(email: session[:email])
+    user.destroy
+  end
+
 	private
 	def users_params					
-		params.permit("username","age","city","phone","email","password")
+		params.permit("username","age","city","email","password")
 	end
 end

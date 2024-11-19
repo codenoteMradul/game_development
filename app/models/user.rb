@@ -4,12 +4,8 @@
   has_many :invitations
   has_many :eventlogs,dependent: :destroy
 
-  validates :username,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" },presence: true,uniqueness: true
-  validates :age, numericality: true,presence: true
-  validates :city,format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" }
-  validates :phone, numericality: true,presence: true,length: {maximum: 11},length: {minimum: 8}
-  validates :email, format: { with: /\A(.+)@(.+)\z/, message: "Email invalid"},uniqueness: true,presence: true
-  validates :points, :numericality => { :greater_than_or_equal_to => -100 }
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
 
   after_save :rank_update, if: :saved_change_to_points?
   after_create :create_event_log

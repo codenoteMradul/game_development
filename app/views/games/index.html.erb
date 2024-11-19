@@ -1,7 +1,7 @@
 <nav>
   <span class="user_display"> User : <%= @user.username.upcase %></span>
   <span class="logout"><%= link_to "logout", users_path %></span>
-  <span class="logout"><%= link_to 'delete account', delete_games_path %></span>
+  <span class="logout"><%= link_to 'delete account', delete_users_path %></span>
 </nav>
 <h1>MENU</h1>
 <span class="home_nav"><%= link_to "Play", start_games_path %></span>   
