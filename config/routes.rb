@@ -9,22 +9,25 @@ Rails.application.routes.draw do
 
   root "users#index"
   resources :loggins, only: [:new,:create]
-  resources :invitations, only: [:index,:new,:create]
+
+  resources :invitations, only: [:index,:new,:create] do 
+    collection do 
+      get 'rules',to: "invitations#rules"
+      get 'leaderboard',to: "invitations#leaderboard"
+      get 'eventlog',to: "invitations#eventlog"
+    end 
+  end
 
   resources :games do
     collection do 
-      # get 'index',to: "games#index"
       get 'start',to: "games#game"
       get 'game_over',to: "games#lose"
-      get 'leaderboard',to: "games#leaderboard"
-      get 'eventlog',to: "games#eventlog"
       get 'final_point',to: "games#point"
     end
   end
 
   resources :users do
-    collection do
-     get 'points',to: "users#point"  
+    collection do  
      get 'rules',to: "users#rules"
      get 'delete',to: "users#destroy"
     end

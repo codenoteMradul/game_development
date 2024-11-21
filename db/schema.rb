@@ -29,6 +29,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_19_101646) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
+  create_table "testing", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
     t.integer "age"

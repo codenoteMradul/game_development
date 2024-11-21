@@ -8,9 +8,6 @@ class UsersController < ApplicationController
   def show
   end
   
-  def point
-  end
-  
 	def new
 	  @user = User.new
 	end

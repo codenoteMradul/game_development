@@ -32,7 +32,7 @@
   <div>
   	<span class="Details"><%= form.label :email %></span>
   	<br>
-  	<%= form.email_field :email, placeholder: "Example@gmail.com", pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[com]{3}$", required: true %>
+  	<%= form.email_field :email, placeholder: "Example@gmail.com", pattern: "/[A-Za-z0-9+_.-]+@([A-Za-z0-9]+\.)+[A-Za-z]{2,6}/", required: true %>
   </div>
    <br>
   <div>

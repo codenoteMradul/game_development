@@ -1,7 +1,7 @@
 <nav>
   <span class="game_user">User: <%= @user.username.upcase%></span>
   <span class="game_nav"><%= link_to "logout", users_path %></span>
-  <span class="game_nav"><%= link_to "quit", games_path %></span>
+  <span class="game_nav"><%= link_to "quit", invitations_path %></span>
 </nav>
 <span id = "random_number">
   <%= ran = rand(10..30) %>

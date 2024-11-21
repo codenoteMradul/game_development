@@ -5,19 +5,21 @@ class User < ApplicationRecord
   has_many :eventlogs,dependent: :destroy
 
   validates :username, uniqueness: true
-  validates :email, uniqueness: true
+  validates :email, format: {with: /[A-Za-z0-9+_.-]+@([A-Za-z0-9]+\.)+[A-Za-z]{2,6}/, message: "invalid"}, 
+            uniqueness: {case_sensitive: false}, 
+            length: {minimum: 4, maximum: 254} 
 
   after_save :rank_update, if: :saved_change_to_points?
   after_create :create_event_log
 
   def self.create_event_log(subject,user)
-    Eventlog.create!(actions: subject ,username: user.username,time: Time.now,user_id: user.id) 
+    Eventlog.create!(actions: subject , username: user.username, time: Time.now, user_id: user.id) 
   end
 
   private
   
   def create_event_log
-    Eventlog.create!(actions: "create account",user_id: id,username: username,time: Time.now)
+    Eventlog.create!(actions: "create account", user_id: id, username: username, time: Time.now)
   end
 
   def rank_update

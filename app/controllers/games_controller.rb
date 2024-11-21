@@ -6,35 +6,11 @@ class GamesController < ApplicationController
     User.create_event_log("play game", @user)
   end			
 
-  def eventlog
-    @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
-  end
-
 	def lose
     @user = User.find_by(email: session['email'])
     @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
 	end
 
-  # def invite
-  #  user = User.find_by(email: session[:email])
-  #   begin
-  #     Invitation.invite(user,params[:email])
-  #     User.create_event_log("send mail",user)
-  #     Invitation.add_points(user)e
-  #     UserMailer.invitation_mail(params[:email]).deliver_now
-  #     flash[:notice] = "Email sent"
-  #     redirect_to games_url
-  #   rescue StandardError => e
-  #     flash[:notice] = e
-  #     redirect_to games_url
-  #   end
-  # end
-
-
-  
-  def leaderboard
-    @rank = User.order(:rank).paginate(page: params[:page],per_page:4)
-  end
 
   def point
     @score = params["point"].to_i
