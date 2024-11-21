@@ -1,10 +1,10 @@
 class GamesController < ApplicationController
   layout "logic"
 
-	def index 
-    @user = User.find_by(email: session[:email])  
-	end
-
+  def game
+    @user = User.find_by(email: session[:email])
+    User.create_event_log("play game", @user)
+  end			
 
   def eventlog
     @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
@@ -15,20 +15,23 @@ class GamesController < ApplicationController
     @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
 	end
 
-  def create
-    user = User.find_by(email: session[:email])
-    begin
-      UserMailer.invitation_mail(params[:email]).deliver_now
-      flash[:notice] = "Email sent"
-      Invitation.invite(user,params[:email])
-      User.create_event_log("send mail",user)
-      Invitation.add_points(user)
-    rescue StandardError => e
-      flash[:notice] = "Error :#{e}"
-      redirect_to games_url
-    end
-  end
+  # def invite
+  #  user = User.find_by(email: session[:email])
+  #   begin
+  #     Invitation.invite(user,params[:email])
+  #     User.create_event_log("send mail",user)
+  #     Invitation.add_points(user)e
+  #     UserMailer.invitation_mail(params[:email]).deliver_now
+  #     flash[:notice] = "Email sent"
+  #     redirect_to games_url
+  #   rescue StandardError => e
+  #     flash[:notice] = e
+  #     redirect_to games_url
+  #   end
+  # end
 
+
+  
   def leaderboard
     @rank = User.order(:rank).paginate(page: params[:page],per_page:4)
   end
@@ -51,9 +54,4 @@ class GamesController < ApplicationController
       window.location.href = '/games/start';
     JS
   end
-  
-  def game
-    @user = User.find_by(email: session[:email])
-    User.create_event_log("play game", @user)
-  end			
 end   

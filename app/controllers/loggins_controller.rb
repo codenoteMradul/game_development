@@ -9,7 +9,7 @@ class LogginsController < ApplicationController
         session['email'] = @user.email
         session['name'] = @user.username  
         User.create_event_log("login",@user)
-  		  redirect_to games_url
+  		  redirect_to invitations_url
   		else
   		 flash[:alert] = "Invalid Id or Password"
   		 redirect_to new_loggin_url

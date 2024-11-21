@@ -1,0 +1,16 @@
+<span class = "heading_mail">Invite Friends</span>
+<br><br>
+
+<div class="errors_display">
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+       <h3><%= message %></h3>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_with(model: @invitation) do |form| %>
+  <span class="alert"><%= flash[:notice] %><span><br>
+  <%= form.text_area :email, placeholder: "Enter Email"%><br>
+  <%= form.submit "Send Invitation" %>
+<% end %>
