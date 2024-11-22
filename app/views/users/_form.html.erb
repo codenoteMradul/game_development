@@ -26,7 +26,7 @@
   <div>
   	<span class="Details"><%= form.label :city %></span>
   	<br>
-  	<%= form.text_field :city, placeholder: "City", minlength: 2, maxlength: 12, pattern: "[A-Za-z]*", required: true %>
+  	<%= form.text_field :city, placeholder: "City", minlength: 3, maxlength: 15, pattern: "[A-Za-z]*", required: true %>
   </div>
    <br>
   <div>
@@ -38,7 +38,7 @@
   <div>
   	<span class="Details"><%= form.label :password %></span>
   	<br>
-  	<%= form.password_field :password, placeholder: "Password", required: true %>
+  	<%= form.password_field :password, placeholder: "Password", minlength: 4, maxlength: 10, required: true %>
   </div>
    <br>
   <div>

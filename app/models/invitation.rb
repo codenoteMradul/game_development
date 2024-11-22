@@ -19,7 +19,6 @@ class Invitation < ApplicationRecord
   end
 
   def add_points
-    @user = User.find_by(email: user.email)
-    @user.update!(points: user.points + 200)  
+    user.update!(points: user.points + 200)  
   end
 end

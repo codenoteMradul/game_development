@@ -11,7 +11,6 @@ class GamesController < ApplicationController
     @events = Eventlog.where(username: session['name']).paginate(page: params[:page],per_page:10)
 	end
 
-
   def point
     @score = params["point"].to_i
     session['get'] = @score
@@ -23,7 +22,7 @@ class GamesController < ApplicationController
     else
       points_down = 100
       @user.update!(points: @user.points - points_down)
-      User.create_event_log("game over", @user)
+      User.create_event_log("game over", @user) 
     end
     render js: <<~JS
       $('.points').text('#{@user.points}');

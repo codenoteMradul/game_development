@@ -32,6 +32,5 @@ Rails.application.routes.draw do
      get 'delete',to: "users#destroy"
     end
   end 
-
 end
   

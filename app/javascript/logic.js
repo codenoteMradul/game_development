@@ -24,13 +24,9 @@ $(document).ready(function(){
         $(".points").text(response["points"]);
       }
     });   
-    // setTimeout(time, 1000000);
-    // function time(){
-    //   debugger
-    //   window.location.href = '/games/game_over';
-    //   alert("timeup")
-    // } 
   });    
 });
   
+
+
 

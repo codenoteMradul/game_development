@@ -15,7 +15,6 @@ class InvitationsController < ApplicationController
     @rank = User.order(:rank).paginate(page: params[:page], per_page:4)
   end
 
-
   def create
     @user = User.find_by(email: session[:email])
     invitation = Invitation.new(email: params[:email], user_id: @user.id)

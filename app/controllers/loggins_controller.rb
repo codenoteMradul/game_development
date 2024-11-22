@@ -1,4 +1,5 @@
 class LogginsController < ApplicationController
+ 
   def new
   end
 

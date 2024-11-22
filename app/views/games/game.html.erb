@@ -8,10 +8,20 @@
   <%= hidden_field_tag :number, ran %> 
 </span>
 
+<details class="hop">
+  <summary>How To Play</summary><br>
+  <span id="demo">23</span><br><br>
+  <b>
+   correct = 995 (9+9+5 = 23)
+  <br><br>
+   wrong = 23 (2+3 = 5)
+  </b>
+</details>
+  
 <div>
   <p>Score: <%= @user.points %></p>
 </div>
-  <button id="clear" onclick="document.getElementById('game').value = '';">Clear</button>
+<button id="clear" onclick="document.getElementById('game').value = '';">Clear</button>
 <div>
   <form>         
     <input id = "game" type ="text" name = "answer"> <button id="button" >submit</button><br> <br>  
