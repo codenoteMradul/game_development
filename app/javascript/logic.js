@@ -13,20 +13,18 @@ $(document).ready(function(){
       point -= 100
       $(".points").text(point);
       window.location.href = '/games/game_over'
-      alert("Game Over"); 
+      alert("Game Over");
     }    
     $.ajax({
       url: '/games/final_point',
       type: 'GET',
-      dataType: 'script', 
-      data: { point: point},
-      success: function(response){
-        $(".points").text(response["points"]);
+      dataType: 'json', 
+      data: {point: point},
+      success: function(){
+        $(window).scrollTop();
+        location.reload(); 
       }
     });   
   });    
-});
+}); 
   
-
-
-

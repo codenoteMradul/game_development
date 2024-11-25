@@ -24,9 +24,5 @@ class GamesController < ApplicationController
       @user.update!(points: @user.points - points_down)
       User.create_event_log("game over", @user) 
     end
-    render js: <<~JS
-      $('.points').text('#{@user.points}');
-      window.location.href = '/games/start';
-    JS
   end
 end   
